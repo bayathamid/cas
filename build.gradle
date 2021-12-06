@@ -172,8 +172,9 @@ allprojects {
     apply plugin: "jacoco"
 
     if (gradle.startParameter.taskNames.any { task -> task.equalsIgnoreCase("install") }) {
-        apply plugin: "maven"
+        apply plugin: "maven-publish"
     }
+    
 
     def skipRetry = providers.systemProperty('skipTestRetry').forUseAtConfigurationTime().present
     if (!skipRetry) {
